@@ -75,3 +75,23 @@ def play_game(username):
         print(f"Congratulations, {username}! You guessed the word: {word}")
     else:
         print(f"Sorry, {username}. You ran out of guesses. The word was: {word}")
+
+def take_menu_input(username):
+    print(f"\nHello, {username}! What would you like to do?")
+    print("1. Start Game")
+    print("2. View Rules")
+    print("3. Exit Game")
+
+    choice = input("Choose an option (1/2/3): ")
+    if choice not in ["1", "2", "3"]:
+        print(f"Invalid choice, {username}. Please choose again.")
+        return take_menu_input(username)
+    else:
+        return choice
+
+def print_rules():
+    print("\nRules:")
+    print("1. Choose a difficulty level by entering a number.")
+    print("2. Guess letters to uncover the hidden word.")
+    print("3. You have a limited number of incorrect guesses based on the difficulty.")
+    print("4. If you guess the word before running out of guesses, you win!")
