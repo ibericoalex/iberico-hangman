@@ -95,3 +95,19 @@ def print_rules():
     print("2. Guess letters to uncover the hidden word.")
     print("3. You have a limited number of incorrect guesses based on the difficulty.")
     print("4. If you guess the word before running out of guesses, you win!")
+
+def main():
+    print("Welcome to Hangman!")
+    username = input("Enter your username: ")
+    print(random.choice([f"Let's have some fun, {username}!", f"Ready to guess, {username}?", f"Can you beat the game, {username}?"]))
+
+    menu_input = take_menu_input(username)
+    if menu_input == "1":
+        play_game(username)
+    elif menu_input == "2":
+        print_rules()
+    elif menu_input == "3":
+        print(f"Thanks for playing, {username}! Goodbye!")
+
+if __name__ == "__main__":
+    main()
