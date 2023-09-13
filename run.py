@@ -55,8 +55,8 @@ def play_game(username):
         clear_screen()
         print(HANGMAN_PICS[incorrect_guesses])
         print(" ".join(guessed))
-        print(f"Incorrectly guessed letters, {username}: {', '.join(incorrect_guessed_letters)}")
-        print(f"Attempts left, {username}: {MAX_GUESSES_BY_DIFFICULTY[difficulty] - incorrect_guesses}")
+        print(f"Incorrectly guessed letters: {', '.join(incorrect_guessed_letters)}")
+        print(f"Attempts left: {MAX_GUESSES_BY_DIFFICULTY[difficulty] - incorrect_guesses}")
         guess = input("Guess a letter:\n").upper()
 
         if guess in guessed or guess in incorrect_guessed_letters:
@@ -70,14 +70,16 @@ def play_game(username):
         else:
             incorrect_guesses += 1
             incorrect_guessed_letters.append(guess)
-
+    clear_screen()
     print(HANGMAN_PICS[incorrect_guesses])
     if "_" not in guessed:
         print(f"Congratulations, {username}! You guessed the word: {word}")
     else:
         print(f"Sorry, {username}. You ran out of guesses. The word was: {word}")
+    input("\nPress Enter to return to the main menu...\n")
 
 def take_menu_input(username):
+    clear_screen()
     print(f"\nWhat would you like to do?")
     print("1. Start Game")
     print("2. View Rules")
