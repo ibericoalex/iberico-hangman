@@ -1,5 +1,6 @@
 import os
 import random
+from ascii_art import WELCOME_MESSAGE
 from words import word_list
 from hangman_pics import HANGMAN_PICS
 
@@ -100,6 +101,7 @@ def print_rules():
 
 def main():
     print("Welcome to Hangman!")
+    print(WELCOME_MESSAGE)
     username = input("Enter your username:\n")
     clear_screen()
     print(random.choice([f"Let's have some fun, {username}!", f"Ready to guess, {username}?", f"Can you beat the game, {username}?"]))
