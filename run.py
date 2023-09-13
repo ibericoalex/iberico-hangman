@@ -23,3 +23,10 @@ LETTER_COUNT_BY_DIFFICULTY = {
         'max': 150
     },
 }
+
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+def get_word(difficulty):
+    word_length_config = LETTER_COUNT_BY_DIFFICULTY[difficulty]
+    return random.choice([word for word in word_list if word_length_config['min'] <= len(word) <= word_length_config['max']])
