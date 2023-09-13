@@ -1,15 +1,18 @@
+# Import necessary modules and libraries
 import os
 import random
 import ascii_art 
 from words import word_list
 from hangman_pics import HANGMAN_PICS
 
+# Define constants for maximum guesses based on difficulty
 MAX_GUESSES_BY_DIFFICULTY = {
     "1": 5,
     "2": 6,
     "3": 8
 }
 
+# Define constants for word length based on difficulty
 LETTER_COUNT_BY_DIFFICULTY = {
     "1": {
         'min': 3,
@@ -25,13 +28,16 @@ LETTER_COUNT_BY_DIFFICULTY = {
     },
 }
 
+# Function to clear the terminal or command prompt screen
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
+# Function to get a word based on the chosen difficulty
 def get_word(difficulty):
     word_length_config = LETTER_COUNT_BY_DIFFICULTY[difficulty]
     return random.choice([word for word in word_list if word_length_config['min'] <= len(word) <= word_length_config['max']])
 
+# Function to get the difficulty level from the user
 def get_difficulty(username):
     print(f"\nHello, {username}! Choose a difficulty level:")
     print("1. Easy")
@@ -42,6 +48,7 @@ def get_difficulty(username):
         difficulty = input(f"Invalid choice, {username}. Please choose again (1/2/3):\n")
     return difficulty
 
+# Function to handle the main game logic
 def play_game(username):
     clear_screen()
     difficulty = get_difficulty(username)
@@ -80,6 +87,7 @@ def play_game(username):
         print(ascii_art.GAMEOVER_MESSAGE[0])
     input("\nPress Enter to return to the main menu...\n")
 
+# Function to handle the main menu input from the user
 def take_menu_input(username):
     clear_screen()
     print(f"\nWhat would you like to do?")
@@ -94,10 +102,12 @@ def take_menu_input(username):
     else:
         return choice
 
+# Function to display the game rules
 def print_rules():
     clear_screen()
-    print(ascii_art.GAME_RULES_MESSAGE[0])    
+    print(ascii_art.GAME_RULES_MESSAGE[0])
 
+# Main function to run the game
 def main():
     print(ascii_art.WELCOME_MESSAGE[0])
     username = input("Enter your username:\n")
@@ -110,10 +120,11 @@ def main():
             play_game(username)
         elif menu_input == "2":
             print_rules()
-            input("\nPress Enter to return to the main menu...\n")  # This will pause the screen until the user presses Enter
+            input("\nPress Enter to return to the main menu...\n")
         elif menu_input == "3":
             print(f"Thanks for playing, {username}! Goodbye!")
-            break  # This will exit the loop and end the game
+            break
 
+# Check to ensure the script is being run directly and not imported
 if __name__ == "__main__":
     main()
