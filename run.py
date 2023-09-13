@@ -77,7 +77,7 @@ def play_game(username):
         print(f"Sorry, {username}. You ran out of guesses. The word was: {word}")
 
 def take_menu_input(username):
-    print(f"\nHello, {username}! What would you like to do?")
+    print(f"\nWhat would you like to do?")
     print("1. Start Game")
     print("2. View Rules")
     print("3. Exit Game")
@@ -90,24 +90,30 @@ def take_menu_input(username):
         return choice
 
 def print_rules():
+    clear_screen()
     print("\nRules:")
     print("1. Choose a difficulty level by entering a number.")
     print("2. Guess letters to uncover the hidden word.")
     print("3. You have a limited number of incorrect guesses based on the difficulty.")
     print("4. If you guess the word before running out of guesses, you win!")
+    
 
 def main():
     print("Welcome to Hangman!")
     username = input("Enter your username: ")
+    clear_screen()
     print(random.choice([f"Let's have some fun, {username}!", f"Ready to guess, {username}?", f"Can you beat the game, {username}?"]))
 
-    menu_input = take_menu_input(username)
-    if menu_input == "1":
-        play_game(username)
-    elif menu_input == "2":
-        print_rules()
-    elif menu_input == "3":
-        print(f"Thanks for playing, {username}! Goodbye!")
+    while True:  # This loop will keep the game running until the user chooses to exit
+        menu_input = take_menu_input(username)
+        if menu_input == "1":
+            play_game(username)
+        elif menu_input == "2":
+            print_rules()
+            input("\nPress Enter to return to the main menu...")  # This will pause the screen until the user presses Enter
+        elif menu_input == "3":
+            print(f"Thanks for playing, {username}! Goodbye!")
+            break  # This will exit the loop and end the game
 
 if __name__ == "__main__":
     main()
