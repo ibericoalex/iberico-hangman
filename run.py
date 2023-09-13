@@ -36,9 +36,9 @@ def get_difficulty(username):
     print("1. Easy")
     print("2. Medium")
     print("3. Hard")
-    difficulty = input("Enter a number (1/2/3): ")
+    difficulty = input("Enter a number (1/2/3):\n")
     while difficulty not in ["1", "2", "3"]:
-        difficulty = input(f"Invalid choice, {username}. Please choose again (1/2/3): ")
+        difficulty = input(f"Invalid choice, {username}. Please choose again (1/2/3):\n")
     return difficulty
 
 def play_game(username):
@@ -56,7 +56,7 @@ def play_game(username):
         print(" ".join(guessed))
         print(f"Incorrectly guessed letters, {username}: {', '.join(incorrect_guessed_letters)}")
         print(f"Attempts left, {username}: {MAX_GUESSES_BY_DIFFICULTY[difficulty] - incorrect_guesses}")
-        guess = input("Guess a letter: ").upper()
+        guess = input("Guess a letter:\n").upper()
 
         if guess in guessed or guess in incorrect_guessed_letters:
             print(f"You've already guessed that letter, {username}. Try again.")
@@ -82,7 +82,7 @@ def take_menu_input(username):
     print("2. View Rules")
     print("3. Exit Game")
 
-    choice = input("Choose an option (1/2/3): ")
+    choice = input("Choose an option (1/2/3):\n")
     if choice not in ["1", "2", "3"]:
         print(f"Invalid choice, {username}. Please choose again.")
         return take_menu_input(username)
@@ -100,7 +100,7 @@ def print_rules():
 
 def main():
     print("Welcome to Hangman!")
-    username = input("Enter your username: ")
+    username = input("Enter your username:\n")
     clear_screen()
     print(random.choice([f"Let's have some fun, {username}!", f"Ready to guess, {username}?", f"Can you beat the game, {username}?"]))
 
@@ -110,7 +110,7 @@ def main():
             play_game(username)
         elif menu_input == "2":
             print_rules()
-            input("\nPress Enter to return to the main menu...")  # This will pause the screen until the user presses Enter
+            input("\nPress Enter to return to the main menu...\n")  # This will pause the screen until the user presses Enter
         elif menu_input == "3":
             print(f"Thanks for playing, {username}! Goodbye!")
             break  # This will exit the loop and end the game
