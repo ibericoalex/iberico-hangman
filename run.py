@@ -40,3 +40,38 @@ def get_difficulty(username):
     while difficulty not in ["1", "2", "3"]:
         difficulty = input(f"Invalid choice, {username}. Please choose again (1/2/3): ")
     return difficulty
+
+def play_game(username):
+    clear_screen()
+    difficulty = get_difficulty(username)
+    
+    word = get_word(difficulty).upper()
+    guessed = ["_"] * len(word)
+    incorrect_guesses = 0
+    incorrect_guessed_letters = []
+
+    while "_" in guessed and incorrect_guesses < MAX_GUESSES_BY_DIFFICULTY[difficulty]:
+        clear_screen()
+        print(HANGMAN_PICS[incorrect_guesses])
+        print(" ".join(guessed))
+        print(f"Incorrectly guessed letters, {username}: {', '.join(incorrect_guessed_letters)}")
+        print(f"Attempts left, {username}: {MAX_GUESSES_BY_DIFFICULTY[difficulty] - incorrect_guesses}")
+        guess = input("Guess a letter: ").upper()
+
+        if guess in guessed or guess in incorrect_guessed_letters:
+            print(f"You've already guessed that letter, {username}. Try again.")
+            continue
+
+        if guess in word:
+            for i, letter in enumerate(word):
+                if letter == guess:
+                    guessed[i] = guess
+        else:
+            incorrect_guesses += 1
+            incorrect_guessed_letters.append(guess)
+
+    print(HANGMAN_PICS[incorrect_guesses])
+    if "_" not in guessed:
+        print(f"Congratulations, {username}! You guessed the word: {word}")
+    else:
+        print(f"Sorry, {username}. You ran out of guesses. The word was: {word}")
