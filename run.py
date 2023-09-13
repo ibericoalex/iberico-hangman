@@ -74,8 +74,10 @@ def play_game(username):
     print(HANGMAN_PICS[incorrect_guesses])
     if "_" not in guessed:
         print(f"Congratulations, {username}! You guessed the word: {word}")
+        print(ascii_art.WIN_MESSAGE[0])
     else:
         print(f"Sorry, {username}. You ran out of guesses. The word was: {word}")
+        print(ascii_art.GAMEOVER_MESSAGE[0])
     input("\nPress Enter to return to the main menu...\n")
 
 def take_menu_input(username):
