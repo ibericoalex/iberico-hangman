@@ -1,6 +1,6 @@
 import os
 import random
-from ascii_art import WELCOME_MESSAGE
+import ascii_art 
 from words import word_list
 from hangman_pics import HANGMAN_PICS
 
@@ -92,16 +92,10 @@ def take_menu_input(username):
 
 def print_rules():
     clear_screen()
-    print("\nRules:")
-    print("1. Choose a difficulty level by entering a number.")
-    print("2. Guess letters to uncover the hidden word.")
-    print("3. You have a limited number of incorrect guesses based on the difficulty.")
-    print("4. If you guess the word before running out of guesses, you win!")
-    
+    print(ascii_art.GAME_RULES_MESSAGE[0])    
 
 def main():
-    print("Welcome to Hangman!")
-    print(WELCOME_MESSAGE)
+    print(ascii_art.WELCOME_MESSAGE[0])
     username = input("Enter your username:\n")
     clear_screen()
     print(random.choice([f"Let's have some fun, {username}!", f"Ready to guess, {username}?", f"Can you beat the game, {username}?"]))
