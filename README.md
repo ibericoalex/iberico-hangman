@@ -2,7 +2,7 @@
 
 This is a Python terminal game of Hangman. The game allows users to guess letters of a word until they either guess the entire word correctly or run out of attempts. The number of attempts is determined by the difficulty level chosen by the user.
 
-Live deployment - [Hangman Challenge](heroku-link)
+Live deployment - [Hangman Challenge](https://iberico-hangman-8ab91ba9c2a3.herokuapp.com/)
 
 ![Website mockup](./documentation/mock-up.png)
 
@@ -46,7 +46,7 @@ Before diving into the coding process, I created a flowchart to provide a clear 
     ![welcome-screen](./documentation/welcome-screen.png)
 
 - **Main Menu**
-    - The game starts with a main menu that allows users to start the game, view the rules, or exit.  Worth mentioning, random selected welcome sentence with User's name from the following below options:
+    - The game starts with a main menu that allows users to start the game, view the rules, or exit.  Worth mentioning, random selected welcome sentences with user's name from the following below options:
     1. Let's have some fun, {username}!
     2. Ready to guess, {username}?
     3. Can you beat the game, {username}?
@@ -64,21 +64,25 @@ Before diving into the coding process, I created a flowchart to provide a clear 
     ![difficulty-screen](./documentation/difficulty-screen.png)
     
 - **Hangman Game**
-    - User selects `Start Game``
+    - User selects "Start Game".
     - Decide on a difficulty level:
         - **Easy** - word length: 3 characters and 5 guesses
+
         ![easy-screen](./documentation/easy-screen.png)
         - **Medium** - word length between 4 and 6 characters and 6 guesses
+
         ![medium-screen](./documentation/medium-screen.png)
         - **Hard** - word length higher than 7 characters and 8 guesses
+
         ![hard-screen](./documentation/hard-screen.png)
 
     - Random Word Selection: The game selects a random word based on the chosen difficulty level.
     - Dynamic Feedback: The game provides feedback on **guessed letters**, **remaining attempts**, and **incorrectly guessed letters**.
+
     ![feedback-screen](./documentation/feedback-screen.png)
 
 - **Replayability** 
-    - Once the game is over and the user has either won or lost, users are prompted to return to the main menu, where they can either decided to replay or exit the game.
+    - Once the game is over and the user has either won or lost, users are prompted to return to the main menu, where they can decide to replay or exit the game.
 
     **You won**
     ![win-screen](./documentation/win-screen.png)
@@ -92,7 +96,7 @@ Before diving into the coding process, I created a flowchart to provide a clear 
     ![valid-letter-screen](./documentation/valid-letter-screen.png)
 
 - **ASCII Art** 
-    - The game uses ASCII art for welcome messages, game rules, win messages, and game over messages.
+    - The game uses ASCII art for welcome, game rules, win messages, and game over messages.
 
     ![ascii-art-screen](./documentation/ascii-art-screen.png)
 ### Future Features
@@ -106,19 +110,34 @@ Before diving into the coding process, I created a flowchart to provide a clear 
 ### Validator Testing
 - [CI PEP8 Online](https://pep8ci.herokuapp.com/). 
    - No errors were returned.
-![PEP8 CI Validation](documentation/python-linter.png)
+
+![PEP8 CI Validation](./documentation/python-linter.png)
 
 ### Manual Testing
-- Various tests were conducted to ensure the game runs smoothly and handles different user inputs gracefully
-- Tested on my local terminal and the Code Institute Heroku terminal
+- Tested on my local terminal and the Code Institute Heroku terminal.
+- Comprehensive testing was undertaken to guarantee seamless gameplay and robust handling of diverse user inputs. In cases of invalid inputs, the game provides a notification and requests the user to enter a valid command.
+
+    **Invalid Username Input**
+    ![invalid-username-screen](./documentation/invalid-username-screen.png)
+
+    **Invalid Main Menu Input**
+    ![invalid-username-screen](./documentation/invalid-main-menu-screen.png)
+
+    **Invalid Difficulty Input**
+    ![invalid-username-screen](./documentation/invalid-difficulty-screen.png)
+
+    **Invalid Letters Input**
+    ![invalid-username-screen](./documentation/invalid-letters-screen.png)
 
 ## Bugs
 ### Solved Bugs
 **Requirements.txt:** When I used the `pip3 freeze > requirements.txt` command, it generated the following list of dependencies:
-![dependencies](documentation/heroku-dependencies.png)
+
+![dependencies](./documentation/heroku-dependencies.png)
 
 However, when deploying to Heroku, I encountered the following error:
-![dependencies](documentation/bug-heroku.png)
+
+![dependencies](./documentation/bug-heroku.png)
 
 **Solution:** To resolve this issue, I had to manually edit the **requirements.txt** file and replace the section - **six @ file:///AppleInternal/BuildRoot/Library/Caches/com.apple.xbs/Sources/python3/python3-103/six-1.15.0-py2.py3-none-any.whl** with **six==1.15.0**. This adjustment ensured that the dependencies were correctly deployed to Heroku without errors.
 
@@ -136,7 +155,7 @@ However, when deploying to Heroku, I encountered the following error:
 * [ChatGPT](https://chat.openai.com/): Artificial intelligence chatbot.
 * [Lucid](https://lucidchart.com): A web-based diagramming application that allows users to visually collaborate on drawing, revising and sharing charts and diagrams.
 * [Techsini](http://techsini.com/multi-mockup/index.php): Mockup generator.
-* [ASCII art](https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20): a graphic design technique that uses computers for presentation and consists of pictures pieced together from the 95 printable characters.
+* [ASCII art](https://patorjk.com/software/taag/): a graphic design technique that uses computers for presentation and consists of pictures pieced together from the 95 printable characters.
 
 ##Imported Libraries and Packages##
 - [random](https://docs.python.org/3/library/random.html) was used to select a random word for the the words.py file.
@@ -175,23 +194,26 @@ The application was deployed using Heroku CLI. The deployment process is as foll
 
 9. For deployment options, for this project I chose "Manual deploy".
 
-Live deployment link - [Hangman Challenge](heroku-link)
+Live deployment link - [Hangman Challenge](https://iberico-hangman-8ab91ba9c2a3.herokuapp.com/)
 
 ## **Credits**
 ### **Code**
-- Memory game card code - inspired by following [youtube video](https://www.youtube.com/watch?v=ZniVgo8U7ek&t=139s).
-- Modal code - inspired by Kevin Powell's [youtube video](https://www.youtube.com/watch?v=TAB_v6yBXIE&ab_channel=KevinPowell).
-- Timer section code - inspired by following [website](https://daily-dev-tips.com/posts/vanilla-javascript-timer/). 
-- Score calculation code - produced with the help of my Mentor Akshat Garg.
-- Toggle music ON/OFF code - inspired by following [website](https://stackoverflow.com/questions/27368778/how-to-toggle-audio-play-pause-with-one-button-or-link).
+- Inspiration for the hangman game code:
+    - Codefather [website](https://codefather.tech/blog/hangman-game-python/).
+    - [youtube video](https://www.youtube.com/watch?v=cJJTnI22IF8).
+    - [youtube video](https://www.youtube.com/watch?v=m4nEnsavl6w&t=3s).
+- `if __name__ == ‘__main__’` - inspired by following [website](https://www.jcchouinard.com/python-if-name-equals-main/). 
+- ASCII-art - inpsired by this [website](https://patorjk.com/software/taag/#p=display&f=Big&t=Welcome%20to%20%0AHANGMAN).
+- OS - inspired by this [website](https://www.youtube.com/watch?v=tJxcKyFMTGo).
+- Random - inspired by this [website](https://www.youtube.com/watch?v=KzqSDvzOFNA).
+- Time - information sourced from this [website](https://realpython.com/python-sleep/).
 
 ### **Content**
-- I personally wrote all the content on the website. The content was then refined and corrected with the help of ChatGPT, including the README file.
+- I authored the entire content for the hangman game. Subsequently, with the assistance of ChatGPT, both the game content and the README file underwent meticulous refinement and corrections.
 
 ### **Media**
-- The favicon was designed and created by me using Adobe Photoshop.
-
+- The favicon was sourced from [freepik.com](https://www.freepik.com/) and formatted using [favicon converter](https://favicon.io/favicon-converter/).
 
 ## **Acknowledgements**
-I extend heartfelt gratitude to my mentor, Akshat Garg, for his instrumental guidance as I navigated this project. His promptness and availability played a pivotal role, and I am profoundly thankful for it.
+My heartfelt thanks to my mentor, Akshat Garg. His invaluable guidance and unwavering support were crucial to this project's success. I deeply appreciate his promptness and dedication throughout my journey.
 
