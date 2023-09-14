@@ -8,6 +8,7 @@ from words import word_list
 from hangman_pics import HANGMAN_PICS
 
 MAX_GUESSES_BY_DIFFICULTY = {"1": 5, "2": 6, "3": 8}
+
 LETTER_COUNT_BY_DIFFICULTY = {
     "1": {'min': 3, 'max': 3},
     "2": {'min': 4, 'max': 6},
@@ -97,6 +98,11 @@ def play_game(username):
         print(attempts_msg)
         guess = input("Guess a letter:\n").upper()
 
+        # Check if the guess is an alphabetical letter
+        while not guess.isalpha() or len(guess) != 1:
+            guess_msg = "Please enter a valid alphabetical letter:\n"
+            guess = input(guess_msg).upper()
+
         already_guessed_msg = (
             f"You've already guessed that letter, {username}. Try again."
         )
@@ -132,6 +138,10 @@ def main():
     """Main function to run the game."""
     print(WELCOME_MESSAGE[0])
     username = input("Enter your username:\n")
+
+    while not username.strip():
+        print("No input found. Please enter your username.")
+        username = input("Enter your username:\n")
     clear_screen()
     print(get_random_greeting(username))
 
