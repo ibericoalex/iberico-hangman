@@ -1,6 +1,7 @@
 # Import necessary modules and libraries
 import os
 import random
+import time
 import ascii_art
 from words import word_list
 from hangman_pics import HANGMAN_PICS
@@ -34,7 +35,7 @@ def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
-# Function to get a word based on the chosen difficulty
+# Function to get a random word based on the chosen difficulty
 def get_word(difficulty):
     word_length_config = LETTER_COUNT_BY_DIFFICULTY[difficulty]
     return random.choice([word for word in word_list if word_length_config['min'] <= len(word) <= word_length_config['max']])
@@ -71,6 +72,7 @@ def play_game(username):
 
         if guess in guessed or guess in incorrect_guessed_letters:
             print(f"You've already guessed that letter, {username}. Try again.")
+            time.sleep(1)
             continue
 
         if guess in word:
