@@ -101,6 +101,11 @@ Before diving into the coding process, I created a flowchart to provide a clear 
     - The game uses ASCII art for welcome, game rules, win messages, and game over messages.
 
     ![ascii-art-screen](./documentation/ascii-art-screen.png)
+
+- **Favicon** 
+    -  custom hangman favicon was integrated into the project for a personalized touch.
+    
+        ![favicon](./documentation/favicon.png)
 ### Future Features
 - Leaderboard: Implement a leaderboard to track and display top scores.
 - Hints: Provide hints to users during the game.
