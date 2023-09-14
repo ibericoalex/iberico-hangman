@@ -42,7 +42,7 @@ def get_word(difficulty):
 
 # Function to get the difficulty level from the user
 def get_difficulty(username):
-    print(f"\nHello, {username}! Choose a difficulty level:")
+    print(f"\nChoose a difficulty level:")
     print("1. Easy")
     print("2. Medium")
     print("3. Hard")
@@ -80,7 +80,7 @@ def play_game(username):
         else:
             incorrect_guesses += 1
             incorrect_guessed_letters.append(guess)
-    clear_screen()
+        clear_screen()
     print(HANGMAN_PICS[incorrect_guesses])
     if "_" not in guessed:
         print(f"Congratulations, {username}! You guessed the word: {word}")
@@ -93,7 +93,6 @@ def play_game(username):
 
 # Function to handle the main menu input from the user
 def take_menu_input(username):
-    clear_screen()
     print(f"\nWhat would you like to do?")
     print("1. Start Game")
     print("2. View Rules")
@@ -118,9 +117,11 @@ def main():
     print(ascii_art.WELCOME_MESSAGE[0])
     username = input("Enter your username:\n")
     clear_screen()
-    print(random.choice([f"Let's have some fun, {username}!", f"Ready to guess, {username}?", f"Can you beat the game, {username}?"]))
+    print(random.choice([f"Let's have some fun, {username}!",
+                         f"Ready to guess, {username}?",
+                         f"Can you beat the game, {username}?"]))
 
-    while True:  # This loop will keep the game running until the user chooses to exit
+    while True:  # Loop to keep the game running until the user chooses to exit
         menu_input = take_menu_input(username)
         if menu_input == "1":
             play_game(username)
