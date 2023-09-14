@@ -2,7 +2,7 @@
 
 This is a Python terminal game of Hangman. The game allows users to guess letters of a word until they either guess the entire word correctly or run out of attempts. The number of attempts is determined by the difficulty level chosen by the user.
 
-Live deployment - [Hangman Challenge](https://iberico-hangman-8ab91ba9c2a3.herokuapp.com/)
+Live deployment Link - [Hangman Challenge](https://iberico-hangman-8ab91ba9c2a3.herokuapp.com/)
 
 ![Website mockup](./documentation/mock-up.png)
 
@@ -35,7 +35,7 @@ To introduce more features such as multiplayer mode, a hint system, and a wider 
 ## Flowchart
 Before diving into the coding process, I created a flowchart to provide a clear roadmap for the program's implementation. This chart effectively outlines the program's structure, pinpointing areas for user input, system input validation, and the handling of any incorrect inputs.
 
-![Flowchart](./documentation/mock-up.png)
+![Flowchart](./documentation/flowchart-hangman.png)
 ## Features
 
 ### Existing Features
@@ -85,9 +85,11 @@ Before diving into the coding process, I created a flowchart to provide a clear 
     - Once the game is over and the user has either won or lost, users are prompted to return to the main menu, where they can decide to replay or exit the game.
 
     **You won**
+
     ![win-screen](./documentation/win-screen.png)
 
     **Game over**
+
     ![gameover-screen](./documentation/gameover-screen.png)
 
 - **Uninterrupted User Experience**
@@ -118,15 +120,19 @@ Before diving into the coding process, I created a flowchart to provide a clear 
 - Comprehensive testing was undertaken to guarantee seamless gameplay and robust handling of diverse user inputs. In cases of invalid inputs, the game provides a notification and requests the user to enter a valid command.
 
     **Invalid Username Input**
+
     ![invalid-username-screen](./documentation/invalid-username-screen.png)
 
     **Invalid Main Menu Input**
+
     ![invalid-username-screen](./documentation/invalid-main-menu-screen.png)
 
     **Invalid Difficulty Input**
+
     ![invalid-username-screen](./documentation/invalid-difficulty-screen.png)
 
     **Invalid Letters Input**
+
     ![invalid-username-screen](./documentation/invalid-letters-screen.png)
 
 ## Bugs
@@ -157,10 +163,10 @@ However, when deploying to Heroku, I encountered the following error:
 * [Techsini](http://techsini.com/multi-mockup/index.php): Mockup generator.
 * [ASCII art](https://patorjk.com/software/taag/): a graphic design technique that uses computers for presentation and consists of pictures pieced together from the 95 printable characters.
 
-##Imported Libraries and Packages##
-- [random](https://docs.python.org/3/library/random.html) was used to select a random word for the the words.py file.
-- [os](https://docs.python.org/3/library/os.html) was used to create the clear_screen function to enhance user experience and reduce clutter on screen.
-- [time](https://docs.python.org/3/library/time.html) was used to add delay to repeated letter when guessing, to avoid the terminal to clear directly.
+## Imported Libraries and Packages
+- [random](https://docs.python.org/3/library/random.html) was utilized to select a word at random from the `words.py` file.
+- [os](https://docs.python.org/3/library/os.html) was employed to develop the `clear_screen` function, enhancing user experience by minimizing screen clutter.
+- [time](https://docs.python.org/3/library/time.html) was incorporated to introduce a delay between repeated letter guesses, preventing the terminal from clearing immediately.
 
 ## Deployment
 
@@ -203,13 +209,14 @@ Live deployment link - [Hangman Challenge](https://iberico-hangman-8ab91ba9c2a3.
     - [youtube video](https://www.youtube.com/watch?v=cJJTnI22IF8).
     - [youtube video](https://www.youtube.com/watch?v=m4nEnsavl6w&t=3s).
 - `if __name__ == ‘__main__’` - inspired by following [website](https://www.jcchouinard.com/python-if-name-equals-main/). 
-- ASCII-art - inpsired by this [website](https://patorjk.com/software/taag/#p=display&f=Big&t=Welcome%20to%20%0AHANGMAN).
 - OS - inspired by this [website](https://www.youtube.com/watch?v=tJxcKyFMTGo).
 - Random - inspired by this [website](https://www.youtube.com/watch?v=KzqSDvzOFNA).
 - Time - information sourced from this [website](https://realpython.com/python-sleep/).
 
 ### **Content**
 - I authored the entire content for the hangman game. Subsequently, with the assistance of ChatGPT, both the game content and the README file underwent meticulous refinement and corrections.
+- Words.py - words were generated with chatGPT
+- ASCII-art - generated with following [website](https://patorjk.com/software/taag/#p=display&f=Big&t=Welcome%20to%20%0AHANGMAN).
 
 ### **Media**
 - The favicon was sourced from [freepik.com](https://www.freepik.com/) and formatted using [favicon converter](https://favicon.io/favicon-converter/).
